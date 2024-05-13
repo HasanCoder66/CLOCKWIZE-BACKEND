@@ -22,30 +22,19 @@ export const uploadImages = async (req, res, next) => {
             return res.status(400).json({
               message: error,
             });
+          } else {
+            res.status(200).send({
+              status: "success",
+              message: "image Uploaded",
+              result: result,
+            });
           }
-          const { url } = result;
-
-          // Create a new photo document and push the URL into the photos array
-          // try {
-          //   const newPhoto = new PhotoModel({
-          //     photos: [url], // Assuming you want to store a single URL for each photo document
-          //   });
-          //   await newPhoto.save();
-          //   console.log("Image URL saved to MongoDB:", url);
-          // } catch (error) {
-          //   console.error("Error saving image URL to MongoDB:", error);
-          // }
 
           fs.remove(`uploads/${file}`, (err) => {
             if (err) return console.error(err);
             console.log("success");
           });
 
-          res.status(200).send({
-            status: "success",
-            message: "image Uploaded",
-            result: result,
-          });
         }
       );
     });
