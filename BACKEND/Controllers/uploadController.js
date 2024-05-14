@@ -12,39 +12,6 @@ cloudinary.v2.config({
 });
 
 export const uploadImages = async (req, res, next) => {
-  // try {
-  //   fs.readdirSync("uploads/").forEach((file) => {
-  //     cloudinary.v2.uploader.upload(
-  //       `uploads/${file}`,
-  //       {},
-  //       async (error, result) => {
-  //         if (error) {
-  //           return res.status(400).json({
-  //             message: error,
-  //           });
-  //         } else {
-  //           res.status(200).send({
-  //             status: "success",
-  //             message: "image Uploaded",
-  //             result: result,
-  //           });
-  //         }
-
-  //         fs.remove(`uploads/${file}`, (err) => {
-  //           if (err) return console.error(err);
-  //           console.log("success");
-  //         });
-
-  //       }
-  //     );
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  //   res.status(500).send({
-  //     status: "failed",
-  //     message: "image not Uploaded",
-  //   });
-  // }
   try {
     const uploadedResults = []; // Array to store upload results
 

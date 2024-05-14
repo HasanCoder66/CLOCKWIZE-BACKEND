@@ -22,7 +22,7 @@ const PerfectDaySchema = new Schema(
       type: String,
     },
   },
-  { timeStamps: true }
+  { timestamps: true }
 );
 
 export default mongoose.model("perfect Day", PerfectDaySchema);

@@ -18,21 +18,6 @@ export const createFamilyMember = async (req, res, next) => {
     // Save the new family member to the database
     const saveFamily = await newFamily.save();
     // console.log(saveFamily)
-    const { _id } = saveFamily;
-    console.log(_id);
-
-    await Resident.updateOne(
-      { _id: req.params.residentId },
-      {
-        $push: { familyMember: _id },
-      }
-    );
-
-    // Update the resident document in the database to add the new family member's ID
-    // await Resident.updateOne(
-    //   { _id: residentId }, // Find the resident by ID
-    //   { $push: { families: newFamily._id } } // Add the new family member's ID to the resident's families array
-    // );
 
     res.status(200).send({
       status: "Successful",
